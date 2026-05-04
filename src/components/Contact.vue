@@ -93,11 +93,9 @@ const [message, messageAttrs] = defineField('message');
 // 3. Fonction d'envoi EmailJS
 const onSubmit = handleSubmit(async (values) => {
   try {
-    // REMPLACE CES VALEURS PAR TES IDS EMAILJS
-    const SERVICE_ID = "service_j16ttcv";
-    const TEMPLATE_ID = "template_ky63ked";
-    const PUBLIC_KEY = "LDpeTsbc9CYjJDJx4";
-
+    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
     const templateParams = {
       from_name: values.name,
       from_email: values.email,
